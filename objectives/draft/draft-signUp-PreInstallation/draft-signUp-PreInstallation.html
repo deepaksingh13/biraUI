@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BIRA91</title>
+    <!--Manifest-->
+    <link rel="manifest" href="/manifest.json">
+    <!--Manifest-->
+
+    <!--Compressing Images-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@latest/dist/browser-image-compression.js"></script>
+    <!--Compressing Images-->
+
+
+    <!--Imported Design library-->
+
+    <!--Bootstrap-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
+    <!--Bootstrap-->
+    <!--Imported Design library-->
+
+    <!--Imported link for App for Apple-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="BIRA91">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-57x57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-60x60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-72x72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-76x76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-114x114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/media/icons/manifest2/apple-icon-180x180.png" sizes="180x180">
+    <meta name="msapplication-TileImage" content="/media/icons/manifest2/app-icon-48x48.png">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#3f51b5">
+    <!--Imported link for App for Apple and android-->
+
+    <!--Fontawesome CDN-->
+    <!--Front end imports-->
+    <link rel="stylesheet" href="/view/globalCSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI=" crossorigin="anonymous" />    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha256-4hqlsNP9KM6+2eA8VUT0kk4RsMRTeS7QGHIM+MZ5sLY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/view/globalCSS/inhousestyle.css" />
+    <link rel="stylesheet" href="../draft-signUp.css" />
+    <link rel="stylesheet" href="./draft-signUp-PreInstallation.css">
+    <!--Front end imports-->
+    
+</head>
+
+<body>
+    
+    <div id="app">
+        <nav class="navbar navbar-default nav-custom navbar-fixed-top">
+            <div class="container-fluid">
+                <header class="index-header">
+                    <div class="toggle-btn text-left" onclick="openNav()">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div class="logoSection nav-logo text-left">
+                        <h3>Beast <span id=userName></span></h3>
+                    </div>
+                </header>
+            </div>
+        </nav>
+        <div id="backdraw">
+            <div id="sideNav" class="sidenav">
+                <div class="logo-nav">
+                    <img src="/media/icons/logo/Icons-12.png" class="img-responsive" alt="">
+                </div>
+                <a href="/view/homePage/homePage.html"><i class="fas fa-home"></i>Home</a>
+                <a href="/view/accountList/accountListView.html"><i class="fas fa-tv"></i>Accounts</a>
+                
+                <a href="#"><i class="fas fa-clipboard-list"></i>Leads</a>
+                <a href="/view/calendar/calendar2.html"><i class="far fa-calendar-alt"></i>Calendar</a>
+                <a href="/view/dashboard/dashboard.html"><i class="fas fa-chart-line"></i>Dashboard</a>
+                <div class="bottom-sidenav">
+                    <a href="/view/syncPage/loadingPage.html"><i class="fas fa-sync"></i>SYNC</a>
+                    <a href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i>LOGOUT</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="account-section">
+                        <div class="panel-content" id="listOfAcc">
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="preInstallation">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="preInstall">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <p class="kyc">Pending KYC</p>
+                        <div class="panel-body" >
+                            <div class="row" id="statutory">
+                                <div class="col-xs-12 showKYC Temporarily_Closed">
+                                    <label for="">Temporarily Closed</label>
+                                    <label class="switch">
+                                        <input type="checkbox" checked id="Temporarily_Closed" onchange="checkBoxChangeHandler(this)">
+                                       <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-12 showKYC Parent_Account_Name">
+                                    <div class="row">
+                                    <div class="col-xs-10 form-group" id="outletNameDiv" style="margin: 7px 0;">
+                                       <label class="control-label" for="outletName">Group Accounts</label>
+                                        <input class="form-control" type="text" id="Parent_Account_Name" lang="groupAccount" disabled>
+                                        
+                                      </div>
+                                      <div class="col-xs-2" >
+                                        <div class="iconAlignment">
+                                            <i class="fas fa-search"  data-toggle="modal" onclick="handleFetchAccount()" data-target="#groupAccounts"></i>
+                                        </div>      
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC License_Name Front_Fascade_File">
+                                    <div class="form-group" id="outletNameDiv">
+                                       <label class="control-label" for="outletName">License Name</label>
+                                        <input class="form-control" type="text" id="License_Name" lang="License_Name" onkeyup="formListener(this)">
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-1 col-xs-2 showKYC License_Name Front_Fascade_File">
+                                    <div class="image-upload form-group">
+                                        <label for="Front_Fascade_File">
+                                            <i class="fa fa-camera Front_Fascade_File" aria-hidden="true"></i>
+                                            
+                                        </label>
+                                        <input id="Front_Fascade_File" lang="Front_Fascade_File" onchange="fileInput(this)" capture="camera"   accept="image/*" type="file"/>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-sm-5 col-xs-10 showKYC License_Number License_Copy_File">
+                                    <div class="form-group" id="licenseNumberDiv">
+                                       <label class="control-label" for="licenseNumber">License Number</label>
+                                        <input class="form-control" type="text" id="License_Number" lang="License_Number" onkeyup="formListener(this)">
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-1 col-xs-2 showKYC License_Number License_Copy_File">
+                                    <div class="image-upload form-group">
+                                        <label for="License_Copy_File">
+                                            <i class="fa fa-camera License_Copy_File" aria-hidden="true"></i>
+                                            
+                                        </label>
+                                        <input id="License_Copy_File" lang="License_Copy_File"  onchange="fileInput(this)"    accept="image/*" type="file"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC License_Type">
+                                    <div class="form-group" id="licenseTypeDiv">
+                                       <label class="control-label" for="licenseType">License Type</label>
+                                        <input class="form-control" type="text" id="License_Type" lang="License_Type" onkeyup="formListener(this)">
+                                        
+                                      </div>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-10 showKYC Bank_Account_Name">
+                                    <div class="form-group" id="bankAccountNameDiv">
+                                       <label class="control-label" for="bankAccountName">Bank Name</label>
+                                        <input class="form-control" type="text" id="Bank_Account_Name" lang="Bank_Account_Name" onkeyup="formListener(this)">
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Bank_Account_Number">
+                                    <div class="form-group" id="bankAccountNoDiv">
+                                       <label class="control-label" for="bankAccountNo">Bank Account No.</label>
+                                        <input class="form-control" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="Bank_Account_Number" onkeyup="formListener(this)" lang="Bank_Account_Number">
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC PAN Pan_Card_File">
+                                    <div class="form-group" id="panNumberDiv">
+                                       <label class="control-label" for="panNumber">PAN Number</label>
+                                        <input class="form-control panNumber" type="text" id="PAN" lang="PAN" onkeyup="formListener(this)">
+                                        <span class="panReq">PAN number is invalid</span>
+
+                                      </div>
+                                </div>
+                                <div class="col-sm-1 col-xs-2 showKYC PAN Pan_Card_File">
+                                    <div class="image-upload form-group">
+                                        <label for="Pan_Card_File">
+                                            <i class="fa fa-camera Pan_Card_File" aria-hidden="true"></i>
+                                            
+                                        </label>
+                                        <input id="Pan_Card_File" lang="Pan_Card_File" onchange="fileInput(this)"    accept="image/*" type="file"/>
+                                    </div>
+                                </div>
+
+                                 <div class="col-sm-5 col-xs-10 showKYC GST Gst_Registration_Certificate_File">
+                                    <div class="form-group" id="gstNumberDiv">
+                                       <label class="control-label" for="gstNumber">GST Number</label>
+                                        <input class="form-control gstNumber" type="text" id="GST" lang="GST" onkeyup="formListener(this)">
+                                        <span class="gstReq">GST number is invalid</span>
+                                      </div>
+                                </div>
+    
+                                
+                                
+                                <div class="col-sm-1 col-xs-2 showKYC GST Gst_Registration_Certificate_File">
+                                    <div class="image-upload form-group">
+                                        <label for="Gst_Registration_Certificate_File">
+                                            <i class="fa fa-camera Gst_Registration_Certificate_File" aria-hidden="true"></i>
+                                            
+                                        </label>
+                                        <input id="Gst_Registration_Certificate_File" lang="Gst_Registration_Certificate_File" onchange="fileInput(this)"    accept="image/*" type="file"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC TIN Tin_Vat_Certicate_File">
+                                    <div class="form-group" id="tinNumberDiv">
+                                       <label class="control-label" for="tinNumber">TIN Number</label>
+                                        <input class="form-control tinNumber" type="text" id="TIN" lang="TIN" onkeyup="formListener(this)">
+                                        <span class="tinReq">TIN number is invalid</span>
+                                      </div>
+                                </div>
+                                <div class="col-sm-1 col-xs-2 showKYC TIN Tin_Vat_Certicate_File">
+                                    <div class="image-upload form-group">
+                                        <label for="Tin_Vat_Certicate_File">
+                                            <i class="fa fa-camera Tin_Vat_Certicate_File" aria-hidden="true"></i>
+                                            
+                                        </label>
+                                        <input id="Tin_Vat_Certicate_File" lang="Tin_Vat_Certicate_File" onchange="fileInput(this)"    accept="image/*" type="file"/>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-sm-5 col-xs-10 showKYC Central_Sales_Tax_Number">
+                                    <div class="form-group" id="centralSalesTaxNumberDiv">
+                                       <label class="control-label" for="centralSalesTaxNumber">Central Sales Tax Number</label>
+                                        <input class="form-control" type="text" id="Central_Sales_Tax_Number" lang="Central_Sales_Tax_Number" onkeyup="formListener(this)">
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC VAT_Registration_Number">
+                                    <div class="form-group" id="vatRegNumberDiv">
+                                       <label class="control-label" for="vatRegNumber">VAT Registration Number</label>
+                                        <input class="form-control" type="text" id="VAT_Registration_Number" lang="VAT_Registration_Number" onkeyup="formListener(this)">
+                                      </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12 showKYC Parternership_Deed_File">
+                                    <div class="form-group" >
+                                    <label class="control-label" >Partnership Deed</label>
+                                    <div class="image-upload_NoInput form-group" >
+                                        <label for="Parternership_Deed_File">
+                                            <i class="fa fa-camera Parternership_Deed_File" aria-hidden="true"></i>
+                                                
+                                        </label>
+                                        <input id="Parternership_Deed_File" lang="Parternership_Deed_File" onchange="fileInput(this)"    accept="image/*" type="file"/>
+                                    </div>
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12 showKYC Registration_Certificate_File">
+                                    <div class="form-group" >
+                                        <label class="control-label" >Registration Certificate</label>
+                                        <div class="image-upload_NoInput form-group">
+                                            <label for="Registration_Certificate_File">
+                                                <i class="fa fa-camera Registration_Certificate_File" aria-hidden="true"></i>
+                                                    
+                                            </label>
+                                            <input id="Registration_Certificate_File" lang="Registration_Certificate_File" onchange="fileInput(this)"   accept="image/*" type="file"/>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC UB_Monthly_Mass_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >UB Monthly Mass Volume</label>
+                                            <input class="form-control" type="number" id="UB_Monthly_Mass_Volume__c" lang="UB_Monthly_Mass_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC UB_Monthly_Premium_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >UB Monthly Premium Volume</label>
+                                            <input class="form-control" type="number" id="UB_Monthly_Premium_Volume__c" lang="UB_Monthly_Premium_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-10 showKYC ABI_Monthly_Mass_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >ABI Monthly Mass Volume</label>
+                                            <input class="form-control" type="number" id="ABI_Monthly_Mass_Volume__c" lang="ABI_Monthly_Mass_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC ABI_Monthly_Premium_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >ABI Monthly Premium Volume</label>
+                                            <input class="form-control" type="number" id="ABI_Monthly_Premium_Volume__c" lang="ABI_Monthly_Premium_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-10 showKYC Carlsberg_Monthly_Mass_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >Carlsberg Monthly Mass Volume</label>
+                                            <input class="form-control" type="number" id="Carlsberg_Monthly_Mass_Volume__c" lang="Carlsberg_Monthly_Mass_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Carlsberg_Monthly_Premium_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >Carlsberg Monthly Premium Volume</label>
+                                            <input class="form-control" type="number" id="Carlsberg_Monthly_Premium_Volume__c" lang="Carlsberg_Monthly_Premium_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-10 showKYC Craft_Monthly_Mass_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >Craft Monthly Mass Volume</label>
+                                            <input class="form-control" type="number" id="Craft_Monthly_Mass_Volume__c" lang="Craft_Monthly_Mass_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Craft_Monthly_Premium_Volume__c">
+                                    <div class="form-group" >
+                                        <label class="control-label" >Craft Monthly Premium Volume</label>
+                                            <input class="form-control" type="number" id="Craft_Monthly_Premium_Volume__c" lang="Craft_Monthly_Premium_Volume__c" onchange="formListener(this)"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Billing_Street">
+                                    <div class="form-group" id="billingStreetDiv">
+                                       <label class="control-label" for="billingStreet">Billing Address</label>
+                                        <textarea class="form-control" type="text" rows= "3" id="Billing_Street" onkeyup="formListener(this)" lang="Billing_Street" ></textarea>
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Billing_Postal_Code">
+                                    <div class="form-group" id="billingPostalCodeDiv">
+                                       <label class="control-label" for="billingPostalCode">Billing Postal Code</label>
+
+                                        <input class="form-control" lang="Billing_Postal_Code" type="text" id="Billing_Postal_Code" onkeyup="formListener(this)">
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Billing_City">
+                                    <div class="form-group" id="billingCityDiv">
+                                       <label class="control-label" for="billingCity">Billing City</label>
+                                        <input class="form-control" lang="Billing_City" type="text" id="Billing_City" onkeyup="formListener(this)">
+                                      </div>
+                                </div>
+
+                                <div class="col-sm-5 col-xs-10 showKYC Shipping_Street">
+                                    <div class="form-group">
+                                       <label class="control-label" for="shippingStreet">Shipping Address</label>
+                                        <textarea class="form-control" type="text" rows= "3" id="Shipping_Street" onkeyup="formListener(this)" lang="Billing_Street" ></textarea>
+                                        
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Shipping_Postal_Code">
+                                    <div class="form-group" id="">
+                                       <label class="control-label" for="">Shipping Postal Code</label>
+
+                                        <input class="form-control" type="text" id="Shipping_Postal_Code" onkeyup="formListener(this)">
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-xs-10 showKYC Shipping_City">
+                                    <div class="form-group" id="">
+                                       <label class="control-label" for="">Shipping City</label>
+                                        <input class="form-control" type="text" id="Shipping_City" onkeyup="formListener(this)">
+                                      </div>
+                                </div>
+                              </div>
+                        
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <p class="summarySec">Summary</p>
+                        <div id="preInstallSummary">
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-submit">Generate BoM</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </div>
+            
+            
+            <footer class="bottom-nav mdl-layout--fixed-header">
+                <div class="nav-img">
+                    <img src="/media/images/homePage/rsz_icons-07.png" alt="">
+                </div>
+                <div class="nav-img">
+                    <img src="/media/images/homePage/rsz_icons-08.png" alt="">
+                </div>
+                <div class="nav-img">
+                    <img src="/media/images/homePage/rsz_icons-09.png" alt="">
+                </div>
+                <div class="nav-img">
+                    <img src="/media/images/homePage/rsz_icons-10.png" alt="">
+                </div>
+            </footer>
+
+
+            <!--Script imported-->
+            
+
+            <!-- Start Visit Modal -->
+            <!--Front End script-->
+            <script src="/view/globalJS/jquery-3.4.1.min.js"></script>
+            <script src="/view/globalJS/bootstrap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
+                integrity="sha256-NXRS8qVcmZ3dOv3LziwznUHPegFhPZ1F/4inU7uC8h0=" crossorigin="anonymous"></script>
+           
+            <script src="/view/globalJS/main.js"></script>
+            <script src="/view/accountDetail/accountDetailUtility/utility.js"></script>
+            <script src="./draft-signUp-PreInstallation.js"></script>
+            <!--Front End script-->
+            <!--Script imported-->
+
+</body>
+
+</html>

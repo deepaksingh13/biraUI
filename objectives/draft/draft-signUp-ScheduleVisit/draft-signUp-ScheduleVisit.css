@@ -1,0 +1,22 @@
+.draftSignUp{
+    margin-top: 80px;
+}
+
+
+h4,h3{
+    font-weight: 700;
+    color: #ed2228;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.btn-submit{
+    background-color: #ed2228;
+    color: #ffffff;
+    margin: 15px auto;
+    width: 200px;
+    display: block;
+}
+
+  

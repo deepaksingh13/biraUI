@@ -1,0 +1,28 @@
+.draftSignUp{
+    margin-top: 85px;
+}
+
+h4{
+    font-weight: 700;
+    color: #ed2228;
+}
+
+.draftbtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+/* 
+.draftbtn{
+    text-align: center;
+    margin: 50px 0;
+} */
+
+.btn-submit{
+    background-color: #ed2228;
+    color: #ffffff;
+    margin: 15px auto;
+    width: 200px;
+    display: block;
+}

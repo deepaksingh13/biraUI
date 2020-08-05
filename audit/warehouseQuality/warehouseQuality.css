@@ -1,0 +1,15 @@
+.audits{
+    margin-top: 85px;
+}
+
+.audit-heading h4{
+    margin: 25px 15px;
+    font-weight: 700;
+}
+
+
+.btn{
+    background-color: #ed2228;
+    width: 50%;
+    color: #ffffff;
+}

@@ -1,0 +1,76 @@
+
+#categories{
+    width: 37%;
+    display: inline-block;
+  }
+  
+  #salesOrder,#salesOrderModal
+  {
+    border: 0px solid black;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  #salesOrder table,#salesOrderModal table{  
+    background: #f2f2f2;
+    border: 0px solid black;
+  }
+  
+  
+  #salesOrder table td,#salesOrderModal table td
+  {
+    width: 25%;
+    color: #000;
+    text-align: center;
+    font-size: 0.97em;
+    padding: 8px;
+    border: 1px solid black;
+  }
+  
+  #salesOrder table th, #salesOrderModal table th {
+    padding: 8px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    background: grey;
+    position: sticky;
+    top: 0;
+  }
+  
+  div#salesOrderModal {
+    transform: translateY(20%);
+  }
+  
+  #salesOrderModal .modal-body {
+    position: relative;
+    margin: 15px;
+    padding:0;
+    max-height: 250px;
+    overflow: scroll;
+  }
+  
+  .panel-default{
+    margin-top: 90px;
+  }
+  
+  .panel-title {
+    position: relative;
+    font-weight: 700;
+  }
+    
+  .panel-title::after {
+      content: "\f107";
+      color: #fff;
+      top: -2px;
+      right: 0px;
+      position: absolute;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  
+  .panel-title[aria-expanded="true"]::after {
+      content: "\f106";
+  }

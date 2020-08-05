@@ -1,0 +1,27 @@
+.objectives{
+    /* margin: 12rem 0; */
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    top: 50px;
+}
+
+.obj{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.objective{
+    text-align: center;
+    color: #fff;
+    background-color: #ed2228;
+    margin: 30px;
+    border-radius: 15px;
+}
+
+.objective h4{
+    padding: 10px;
+}
