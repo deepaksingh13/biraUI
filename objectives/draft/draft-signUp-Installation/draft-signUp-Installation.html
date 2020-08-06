@@ -139,12 +139,43 @@
         
         <div class="draftbtn">
     
-            <button class="btn btn-submit">Installation Partially Done</button>
+            <button class="btn btn-submit" data-toggle="modal" data-target="#installationPartially">Installation Partially Done</button>
             
-            <button class="btn btn-submit">Installation Not Done</button>
+            <button class="btn btn-submit" data-toggle="modal" data-target="#installationNotDone">Installation Not Done</button>
             <button class="btn btn-submit">Installed & Tested</button>
         </div>
  </div>
+
+
+ <div id="installationPartially" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="partialContent">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="installationNotDone" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="notDoneContent">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
             
             
             <footer class="bottom-nav mdl-layout--fixed-header">

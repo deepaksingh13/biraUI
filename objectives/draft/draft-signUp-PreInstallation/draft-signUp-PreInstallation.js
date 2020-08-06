@@ -71,7 +71,16 @@ let kycDetail = {
     Craft_Monthly_Premium_Volume__c : null,
     Tin_Vat_Certicate_File : null,
     GST : null
-}
+};
+
+
+
+let selectOptions1 = new Map([
+    ['Type_of_Draft_License',['Active','InActive','Applied']],
+    ['Draft_Excide_License_Status',['Yes','No','Applied']],
+    ['Deposit_Amount',['Cheque','NEFT']]
+]);
+
 
 let selectOptions = ['A','B','C','D'];
 
@@ -80,6 +89,7 @@ let setOfSummaryClass = new Set();
 initializePreInstalltion = () =>{
     createPreInstalltionSection();
     creatKYCSection();
+    createDraftSignUpSecurity();
 }
 
 const createPreInstalltionSection = () =>{
@@ -192,7 +202,42 @@ const showSummarySection = (itemList) =>{
     for(let i of setOfSummaryClass){
         $(`.${i}`).css('display','block');
     }
-}
+};
+
+
+
+const createDraftSignUpSecurity = () =>{
+    const mappingFieldLabel = new Map([
+        ['Deposit_Amount','Deposit Amount'],
+        ['Number','Number'],
+        ['Request_Waiver','Request Waiver']
+    ]);
+
+    const draftField = ['Deposit_Amount','Number','Request_Waiver'];
+
+    let tmp = '';
+    for(let i of draftField){
+        tmp +=`
+            <div class="row">
+                <div class="col-xs-6">
+                    <label class="form-label">
+                        ${mappingFieldLabel.get(i)}
+                    </label>
+                </div>
+                <div class="col-xs-6">
+                    ${i === 'Deposit_Amount' ?
+                    createInputField(i) +' '+createSelectOption(i,null,selectOptions1.get(i)) : i === 'Request_Waiver' ?
+                    createToggleField(i,false) : createInputField(i)
+                         }
+                </div>
+            </div>
+        `;
+    }
+
+    $('#secInfo').append(tmp);
+};
+
+
 
 
 const creatKYCSection = () =>{

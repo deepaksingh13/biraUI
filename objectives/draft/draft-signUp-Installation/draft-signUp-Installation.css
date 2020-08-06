@@ -26,3 +26,12 @@ h4{
     width: 200px;
     display: block;
 }
+
+.btn{
+    background-color: #ed2228;
+    color: #ffffff;
+}
+
+.modal-footer{
+    text-align: right;
+}
