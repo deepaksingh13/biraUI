@@ -227,7 +227,7 @@ const createDraftSignUpSecurity = () =>{
                 <div class="col-xs-6">
                     ${i === 'Deposit_Amount' ?
                     createInputField(i) +' '+createSelectOption(i,null,selectOptions1.get(i)) : i === 'Request_Waiver' ?
-                    createToggleField(i,false) : createInputField(i)
+                    createToggleField(i,false) : createInputField(i)+''+createImageCapture(`${i}-camera`,null)
                          }
                 </div>
             </div>
