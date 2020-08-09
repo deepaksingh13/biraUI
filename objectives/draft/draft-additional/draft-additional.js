@@ -1,34 +1,3 @@
-// let preInstallationForm = {
-//     Couple_Type : {
-//         Type : 'Couple Type',
-//         show_panel : false,
-//         show_item : [
-//             {
-//                 Item_Name : 'Antoine (2JG)',
-//                 Quantity : 0
-//             },
-//             {
-//                 Item_Name : 'EP (Micromatic)',
-//                 Quantity : 0
-//             },
-//         ]
-//     },
-//     CO2_Cylinder_Type : {
-//         Type : 'CO2 Cylinder Type',
-//         show_panel : false,
-//         show_item : [
-//             {
-//                 Item_Name : '9kg Co2',
-//                 Quantity : 0
-//             },
-//             {
-//                 Item_Name : '15kg Co2',
-//                 Quantity : 0
-//             },
-//         ]
-//     },
-// };
-
 
 let preInstallationForm = [
     {
@@ -38,10 +7,12 @@ let preInstallationForm = [
         show_item : [
             {
                 Item_Name : 'Antoine (2JG)',
+                Select_Value : 'Missing',
                 Quantity : 0
             },
             {
                 Item_Name : 'EP (Micromatic)',
+                Select_Value : 'Damaged',
                 Quantity : 0
             },
         ]
@@ -54,16 +25,19 @@ let preInstallationForm = [
         show_item : [
             {
                 Item_Name : '9kg Co2',
+                Select_Value : 'Missing',
                 Quantity : 0
             },
             {
                 Item_Name : '15kg Co2',
+                Select_Value : 'Missing',
                 Quantity : 0
             },
         ]
     
     }
 ];
+
 
 
 let kycDetail = {
@@ -110,9 +84,13 @@ const createItemsWithQuantity = (itemList) =>{
 
         for(let j=0;j<itemList[i].show_item.length;j++){
             item +=`
-            <div class="row ${i}-show_panel" style="margin-bottom:10px; display: none">
-                <div class="col-xs-7">${itemList[i].show_item[j].Item_Name}</div>
-                <div class="col-xs-5">${createQuantityInput(`${i}-${j}`,`${itemList[i].show_item[j].Quantity}`)}</div>
+            <div class="row ${i}-show_panel" style="border-radius: 10px;margin:5px 0 10px;padding:10px 0; display: none;border:1px solid #ccc">
+                <div class="col-xs-4">${itemList[i].show_item[j].Item_Name}</div>
+                <div class="col-xs-6">${createSelectOption(`${i}-${j}-select`,`${itemList[i].show_item[j].Select_Value}`,['Missing','Damaged'])}</div>
+                <div class="col-xs-2">${createImageCapture(`${i}-${j}`,null)}</div>
+                <div class="col-xs-4"></div>
+                
+                <div class="col-xs-8">${createQuantityInput(`${i}-${j}`,`${itemList[i].show_item[j].Quantity}`)}</div>
             </div>
         `;
         }
@@ -141,7 +119,7 @@ const showSummarySection = (itemList) =>{
               setOfSummaryClass.add(i);
           tmp +=`
           <div class="row ${i}" style="margin-bottom:10px; display : none">
-              <div class="col-xs-7">${itemList[i].show_item[j].Item_Name}</div>
+              <div class="col-xs-4">${itemList[i].show_item[j].Item_Name}</div>
               <div class="col-xs-5">${itemList[i].show_item[j].Quantity}</div>
           </div>
           `;
@@ -157,7 +135,87 @@ const showSummarySection = (itemList) =>{
     for(let i of setOfSummaryClass){
         $(`.${i}`).css('display','block');
     }
-}
+};
+
+
+
+const createSelectOption = (id,value,options) =>{
+    let tmp =`
+       <div class="form-group">
+        <select class="form-control" id="${id}">
+            <option value="">--None--</option>
+    `;
+
+    for(let i = 0;i<options.length;i++){
+        tmp +=`
+        <option value="${options[i]}" ${options[i] === value ? 'selected' : ''}>${options[i]}</option>
+        `;
+    }
+
+    tmp += '</select></div>';
+
+    return tmp;
+};
+
+
+
+
+const createImageCapture = (id,value) =>{
+
+    let tmp = '';
+
+        tmp = `
+        <div class="image-upload_NoInput form-group" >
+            <div class="camera">
+                <label for="${id}-File">
+                    <i class="fa fa-camera ${id}-File" aria-hidden="true"></i>                                    
+                </label>
+                <input id="${id}-File" onchange="fileInput(this)" capture="camera" accept="image/*" type="file"/>
+            </div>
+        </div> `;
+    return tmp;
+};
+
+
+
+const toBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+
+  const fileInput = async (event) => {
+      console.log('file');
+    const key = event.id;
+    const fileInput = event.files[0];
+    var options = {
+      maxSizeMB: 0.1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true
+    };
+    const compressedFile = await imageCompression(fileInput, options);
+    uploadBase64Value(key, compressedFile);
+    
+  };
+  
+  const uploadBase64Value = async (key, fileInput) => {
+  
+    await toBase64(fileInput);
+    fileAttachedBackgroundChange(key);
+  };
+  
+  const fileAttachedBackgroundChange = (key) => {
+    let iconKey = key;
+  
+    //    let icon = document.querySelector(`#${iconKey}`);
+    let icon = $('.' + iconKey);
+  
+    icon.css('color', '#5cb85c');
+  };
+
+
 
 
 
