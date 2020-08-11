@@ -2,6 +2,14 @@
     margin-top: 85px;
 }
 
+input[type=file] {
+  display: none;
+}
+
+i.fa.fa-camera{
+  top: -10px;
+}
+
 h4{
     font-weight: 700;
     color: #ed2228;
@@ -28,7 +36,7 @@ h4{
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0px;
+    top: 10px;
     left: 0;
     right: 0;
     width: 60px;

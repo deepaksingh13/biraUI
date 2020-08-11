@@ -45,7 +45,7 @@ const createPullOutHomePage = () =>{
     let tmp = `
         <h4>Draft Pullout</h4>
         <div class="row">
-            <div class="col-xs-6">Machine Type</div>
+            <div class="col-xs-6"><label>Machine Type</label></div>
             <div class="col-xs-6">${createSelectOption('Machine_Type',null,selectOptions.get('Machine_Type'))}</div>
         </div>
         
@@ -55,6 +55,7 @@ const createPullOutHomePage = () =>{
     `;
 
     tmp += createItemsWithQuantity(pulloutForm);
+    tmp += createMissingKegs();
 
     $('#pulloutForm').append(tmp);
 }
@@ -76,10 +77,11 @@ const createItemsWithQuantity = (itemList) =>{
         for(let j=0;j<itemList[i].show_item.length;j++){
             item +=`
             <div class="row ${i}-show_panel" style="margin:10px 6px;padding:5px; display: none;border: 1px solid #ccc; border-radius:5px">
-                <div class="col-xs-6">${itemList[i].show_item[j].Item_Name}</div>
-                <div class="col-xs-6">${createInputField(`${i}-Quantity`,null,'number')}</div>  
+                <div class="col-xs-4">${itemList[i].show_item[j].Item_Name}</div>
                 <div class="col-xs-6">${createSelectOption('Machine_Type',null,selectOptions.get('pulloutSelect'))}</div>
-                
+                <div class="col-xs-2">${createImageCapture(`${i}-${j}`,null)}</div>
+                <div class="col-xs-4"></div>
+               
                 <div class="col-xs-6">${createQuantityInput(`${i}-${j}`,`${itemList[i].show_item[j].Quantity}`)}</div>
             
             </div>
@@ -91,6 +93,26 @@ const createItemsWithQuantity = (itemList) =>{
 
     return item;
 };
+
+const createMissingKegs = () =>{
+    let tmp = '';
+    tmp +=`
+    <div class="row">
+        <div class="col-xs-12"><h4 class="draft">Report Missing Kegs</h4></div>
+    </div>
+
+    <div class="row" style="margin:10px 6px;padding:5px;border: 1px solid #ccc; border-radius:5px">
+        <div class="col-xs-2"><label>SKU</label></div>
+        <div class="col-xs-5">${createSelectOption('SKU',null,['20L','30L'])}</div>
+                
+        <div class="col-xs-5" style="padding:0">${createQuantityInput(`SKU-Qty`,0)}</div>
+            
+    </div>
+
+    `;
+
+    return tmp;
+}
 
 const createInputField = (id,value,type) =>{
 
@@ -227,5 +249,66 @@ decrementQtn = (ele) => {
     pulloutForm[fieldName]['show_item'][index].Quantity = value;
 
 };
+
+
+
+const createImageCapture = (id,value) =>{
+
+    let tmp = '';
+
+        tmp = `
+        <div class="image-upload_NoInput form-group" >
+            <div class="camera">
+                <label for="${id}-File">
+                    <i class="fa fa-camera ${id}-File" aria-hidden="true"></i>                                    
+                </label>
+                <input id="${id}-File" onchange="fileInput(this)" capture="camera" accept="image/*" type="file"/>
+            </div>
+        </div> `;
+    return tmp;
+};
+
+
+
+const toBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+});
+
+
+  const fileInput = async (event) => {
+      console.log('file');
+    const key = event.id;
+    const fileInput = event.files[0];
+    var options = {
+      maxSizeMB: 0.1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true
+    };
+    const compressedFile = await imageCompression(fileInput, options);
+    uploadBase64Value(key, compressedFile);
+    
+  };
+  
+  const uploadBase64Value = async (key, fileInput) => {
+  
+    await toBase64(fileInput);
+    fileAttachedBackgroundChange(key);
+  };
+  
+  const fileAttachedBackgroundChange = (key) => {
+    let iconKey = key;
+  
+    //    let icon = document.querySelector(`#${iconKey}`);
+    let icon = $('.' + iconKey);
+  
+    icon.css('color', '#5cb85c');
+  };
+
+
+
+
 
 createPullOutHomePage();
